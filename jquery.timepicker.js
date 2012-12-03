@@ -588,7 +588,7 @@ requires jQuery 1.7+
 
 				case 'H':
 					hour = time.getHours();
-                    if(hour == 0 && _baseDate.getDate() != time.getDate()) {
+                    if(hour === 0 && _baseDate.getDate() != time.getDate()) {
                         hour = 24;
                     }
 					output += (hour > 9) ? hour : '0'+hour;
