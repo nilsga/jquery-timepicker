@@ -29,7 +29,8 @@ requires jQuery 1.7+
 		scrollDefaultNow: false,
 		scrollDefaultTime: false,
 		selectOnBlur: false,
-		appendTo: 'body'
+		appendTo: 'body',
+        dayEndAt24: false
 	};
 	var _lang = {
 		decimal: '.',
@@ -293,7 +294,7 @@ requires jQuery 1.7+
 
 		var durStart = (settings.durationTime !== null) ? settings.durationTime : settings.minTime;
 		var start = (settings.minTime !== null) ? settings.minTime : 0;
-		var end = (settings.maxTime !== null) ? settings.maxTime : (start + _ONE_DAY - 1);
+		var end = (settings.maxTime !== null) ? settings.maxTime : (start + (settings.dayEndAt24 ? _ONE_DAY : _ONE_DAY - 1));
 
 		if (end <= start) {
 			// make sure the end time is greater than start time, otherwise there will be no list to show
@@ -301,7 +302,7 @@ requires jQuery 1.7+
 		}
 
 		for (var i=start; i <= end; i += settings.step*60) {
-			var timeInt = i%_ONE_DAY;
+			var timeInt = (settings.dayEndAt24 ? i : i % _ONE_DAY);
 			var row = $('<li />');
 			row.data('time', timeInt);
 			row.text(_int2time(timeInt, settings.timeFormat));
@@ -549,8 +550,8 @@ requires jQuery 1.7+
 			return;
 		}
 
-		var time = new Date(_baseDate.valueOf() + (seconds*1000));
-		var output = '';
+		var time = new Date(_baseDate.valueOf() + seconds*1000);
+        var output = '';
 		var hour, code;
 
 		for (var i=0; i<format.length; i++) {
@@ -587,6 +588,9 @@ requires jQuery 1.7+
 
 				case 'H':
 					hour = time.getHours();
+                    if(hour == 0 && _baseDate.getDate() != time.getDate()) {
+                        hour = 24;
+                    }
 					output += (hour > 9) ? hour : '0'+hour;
 					break;
 
