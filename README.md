@@ -35,6 +35,10 @@ The time that should appear first in the dropdown list.
 The time that should appear last in the dropdown list. Can be used to limit the range of time options.
 *default: 24 hours after minTime*
 
+- **dayEndAt24**
+Make the selection include 24:00
+*default: false*
+
 - **showDuration**
 Shows the relative time for each item in the dropdown. ```minTime``` or ```durationTime``` must be set.
 *default: false*
