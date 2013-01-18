@@ -29,8 +29,8 @@ requires jQuery 1.7+
 		scrollDefaultTime: false,
 		selectOnBlur: false,
 		appendTo: 'body',
-	        dayEndAt24: false
-		forceRoundTime: false,
+                dayEndAt24: false,
+                forceRoundTime: false
 	};
 	var _lang = {
 		decimal: '.',
