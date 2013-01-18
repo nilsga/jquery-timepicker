@@ -5,7 +5,7 @@
 
   <title>Timepicker for jQuery &ndash; Demos and Documentation</title>
   <meta name="description" content="A lightweight, customizable jQuery timepicker plugin inspired by Google Calendar. Add a user-friendly timepicker dropdown to your app in minutes." />
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
   <script type="text/javascript" src="jquery.timepicker.js"></script>
   <link rel="stylesheet" type="text/css" href="jquery.timepicker.css" />
@@ -175,6 +175,24 @@ $('#timeformatExample2').timepicker({ 'timeFormat': 'h:i A' });</pre>
 
 		<pre class="code" data-language="javascript">$('#stepExample1').timepicker({ 'step': 15 });
 $('#stepExample2').timepicker({ 'step': 60 });</pre>
+	</div>
+
+
+
+
+	<div class="example">
+		<script>
+		  $(function() {
+			$('#roundTimeExample').timepicker({ 'forceRoundTime': true });
+		  });
+		</script>
+
+		<h3>forceRoundTime Example</h3>
+		<p>jquery-timepicker allows entering times via the keyboard. Setting forceRoundTime to true will
+			round the entered time to the nearest option on the dropdown list.</p>
+		<p><input id="roundTimeExample" type="text" class="time" /> </p>
+
+		<pre class="code" data-language="javascript">$('#roundTimeExample').timepicker({ 'forceRoundTime': true });</pre>
 	</div>
 
 
